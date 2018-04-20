@@ -92,6 +92,8 @@ namespace Lands.ViewModels
             this.Email = string.Empty;
             this.Password = string.Empty;
 
+            MainViewModel.GetInstance().Lands = new LandsViewModel();
+
             await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
         }
         #endregion
@@ -101,21 +103,12 @@ namespace Lands.ViewModels
         {
             this.IsRemembered = true;
             this.IsEnabled = true;
+
+            this.Email = "guilreto92@gmail.com";
+            this.Password = "1234";
         }
         #endregion
 
-        #region Singleton
-        private static MainViewModel instance;
 
-        public static MainViewModel GetInstance()
-        {
-            if(instance == null)
-            {
-                return new MainViewModel();
-            }
-
-            return instance;
-        }
-        #endregion
     }
 }
